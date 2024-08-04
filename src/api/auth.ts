@@ -18,3 +18,9 @@ export const login = async (payload: {email: string, password: string}): Promise
 
   return data;
 }
+
+export const recover = async (payload: {email: string}): Promise<{message: string}> => {
+  const { data } = await axios.post(`${API_URL}/recover`, payload);
+
+  return data;
+}
