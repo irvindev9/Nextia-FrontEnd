@@ -1,5 +1,6 @@
 import Home from '../components/Home.vue';
 import Register from '../components/Auth/Register.vue';
+import Login from '../components/Auth/Login.vue';
 
 export default [
   {
@@ -11,5 +12,10 @@ export default [
     path: '/registro',
     name: 'Register',
     component: Register,
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
   }
 ];
