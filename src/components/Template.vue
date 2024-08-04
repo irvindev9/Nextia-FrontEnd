@@ -13,11 +13,14 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <RouterLink class="nav-link active" aria-current="page" to="/">Inicio</RouterLink>
+              <RouterLink class="nav-link active" to="/">Inicio</RouterLink>
+            </li>
+            <li class="nav-item">
+              <RouterLink class="nav-link active" to="/dashboard">Dashboard</RouterLink>
             </li>
           </ul>
           <span class="navbar-text">
-            <RouterLink class="nav-link active" aria-current="page" to="/login">Iniciar sesión</RouterLink>
+            <RouterLink class="nav-link active" to="/login">Iniciar sesión</RouterLink>
           </span>
         </div>
       </div>
