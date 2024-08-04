@@ -8,9 +8,9 @@
         <h1>Inicio</h1>
       </div>
       <div class="col-12">
-        <button class="btn btn-primary mb-3">
+        <RouterLink class="btn btn-primary mb-3" to="/registro">
           Iniciar sesión
-        </button>
+        </RouterLink>
         <br>
         <button class="btn btn-secondary">
           Registrarse
