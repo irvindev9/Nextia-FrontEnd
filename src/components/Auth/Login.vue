@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 import { login as loginRequest } from "../../api/auth";
 
 const email = ref("");
@@ -8,6 +9,8 @@ const error = ref({
   email: false,
   password1: false,
 });
+
+const $router = useRouter();
 
 const validate = () => {
   error.value.email = !email.value;
@@ -23,6 +26,7 @@ const login = async () => {
       password: password1.value,
     });
     console.log({response});
+    $router.push("/dashboard");
   } catch (error) {
     console.error({error});
   }

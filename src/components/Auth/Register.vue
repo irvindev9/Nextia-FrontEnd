@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 import { register } from "../../api/auth";
 
 const name = ref("");
@@ -16,6 +17,8 @@ const error = ref({
   password2: false,
   house_number: false,
 });
+
+const $router = useRouter();
 
 const loading = ref(false); 
 
@@ -44,6 +47,7 @@ const submit = async () => {
     });
     console.log({response});
     loading.value = false;
+    $router.push("/dashboard");
   } catch (error) {
     console.error({error});
     loading.value = false;
