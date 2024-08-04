@@ -17,7 +17,7 @@
             </li>
           </ul>
           <span class="navbar-text">
-            <RouterLink class="nav-link active" aria-current="page" to="/">Iniciar sesión</RouterLink>
+            <RouterLink class="nav-link active" aria-current="page" to="/login">Iniciar sesión</RouterLink>
           </span>
         </div>
       </div>

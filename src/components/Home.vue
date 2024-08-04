@@ -8,13 +8,13 @@
         <h1>Inicio</h1>
       </div>
       <div class="col-12">
-        <button class="btn btn-primary mb-3">
+        <RouterLink class="btn btn-primary mb-3" to="/login">
           Iniciar sesión
-        </button>
+        </RouterLink>
         <br>
-        <button class="btn btn-secondary">
+        <RouterLink class="btn btn-secondary" to="/registro">
           Registrarse
-        </button>
+        </RouterLink>
       </div>
     </div>
   </div>
