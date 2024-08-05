@@ -82,4 +82,10 @@ const getPage = (page: number) => {
   display: block;
   margin: 0 auto;
 }
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
