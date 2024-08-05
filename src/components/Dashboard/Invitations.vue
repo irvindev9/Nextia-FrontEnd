@@ -27,7 +27,7 @@ async function fetchInvitations(page:number = 1){
     console.log({data, info});
     invitations.value = data;
     infoInvitations.value = info;
-  } catch (error) {
+  } catch (error: any) {
     console.error({error});
     if (error.response.status === 403) {
       console.log('Token expired');
