@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import { deleteInvitation } from '../../../api/invitations';
-import { ref } from 'vue';
+import { handleTokenExpired } from '../../../api/auth';
 import VueQrcode from 'vue-qrcode'
 
 defineProps<{
   invitations: any[];
+  infoInvitations: any;
 }>();
 
-const emit = defineEmits(['refreshList']);
-
-const dataUrl = ref('');
+const emit = defineEmits(['refreshList', 'edit']);
 
 const deleteInvitationHandler = async (id: number) => {
   try {
@@ -17,13 +16,18 @@ const deleteInvitationHandler = async (id: number) => {
     await emit('refreshList');
   } catch (error) {
     console.error({error});
+    handleTokenExpired();
   }
 }
 
-function onDataUrlChange(url: string) {
-  dataUrl.value = url
+const edit = (invitation: any) => {
+  console.log('edit', invitation);
+  emit('edit', invitation);
 }
 
+const getPage = (page: number) => {
+  emit('refreshList', page);
+}
 </script>
 
 <template>
@@ -43,12 +47,23 @@ function onDataUrlChange(url: string) {
               <small><b>Fecha de expiración:</b> {{ invitation.expiration_date.split('T')[0].replaceAll('-','/') }}</small>  
               </div>
               <div class="col">
-                <button class="btn btn-secondary btn-sm">Editar</button>
+                <button class="btn btn-secondary btn-sm" @click="edit(invitation)">Editar</button>
                 <button class="btn btn-danger btn-sm mt-1" @click="deleteInvitationHandler(invitation.id)">Eliminar</button>
               </div>
             </div>
           </button>
         </div>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+      <div class="col-12 col-md-10 col-lg-6">
+        <nav v-if="infoInvitations">
+          <ul class="pagination">
+            <li class="page-item" v-for="val in infoInvitations.totalPages" :key="val" :class="{active: infoInvitations.page == val}">
+              <a class="page-link" href="#" @click="getPage(val)">{{val}}</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
 </template>

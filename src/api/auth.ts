@@ -1,8 +1,6 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
+import router from '../routes/router';
 
 const API_URL = import.meta.env.VITE_SOME_KEY || 'http://localhost:3000';
 

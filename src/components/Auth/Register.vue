@@ -29,8 +29,7 @@ const validate = () => {
   error.value.password1 = !password1.value || password1.value.length < 8;
   error.value.password2 = !password2.value || password1.value !== password2.value;
   error.value.house_number = !house_number.value || house_number.value < 1;
-  console.log(Object.values(error).some((e) => e))
-  return !Object.values(error).some((e) => e);
+  return Object.values(error.value).some((e) => e);
 };
 
 const submit = async () => {

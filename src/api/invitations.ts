@@ -23,3 +23,23 @@ export const deleteInvitation = async (id: number): Promise<void> => {
     },
   });
 }
+
+export const createInvitation = async (payload: {name: string, invitation_date: string, expiration_date: string}): Promise<void> => {
+  const token = Cookies.get('token');
+  await axios.post(`${API_URL}/invitations`, payload, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}
+
+export const updateInvitation = async (id: number, payload: {id: number, name: string, invitation_date: string, expiration_date: string, code: string}): Promise<void> => {
+  const token = Cookies.get('token');
+  await axios.put(`${API_URL}/invitations/${id}`, payload, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}
