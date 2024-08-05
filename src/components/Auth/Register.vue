@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 import { register } from "../../api/auth";
 
 const name = ref("");
@@ -17,6 +18,8 @@ const error = ref({
   house_number: false,
 });
 
+const $router = useRouter();
+
 const loading = ref(false); 
 
 const validate = () => {
@@ -26,8 +29,7 @@ const validate = () => {
   error.value.password1 = !password1.value || password1.value.length < 8;
   error.value.password2 = !password2.value || password1.value !== password2.value;
   error.value.house_number = !house_number.value || house_number.value < 1;
-  console.log(Object.values(error).some((e) => e))
-  return !Object.values(error).some((e) => e);
+  return Object.values(error.value).some((e) => e);
 };
 
 const submit = async () => {
@@ -44,6 +46,7 @@ const submit = async () => {
     });
     console.log({response});
     loading.value = false;
+    $router.push("/dashboard");
   } catch (error) {
     console.error({error});
     loading.value = false;
