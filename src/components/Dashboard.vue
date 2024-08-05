@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import Invitations from './Dashboard/Invitations.vue';
+import Reservations from './Dashboard/Reservations.vue';
 
 const tab = ref('invitations');
 </script>
@@ -26,6 +27,7 @@ const tab = ref('invitations');
       </div>
       <div class="card-body">
         <Invitations v-if="tab === 'invitations'" />
+        <Reservations v-if="tab === 'reservations'" />
       </div>
     </div>
   </div>
