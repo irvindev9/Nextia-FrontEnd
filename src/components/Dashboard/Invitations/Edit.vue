@@ -66,7 +66,7 @@ const update = async () => {
         <label for="name" class="form-label">Codigo de invitación</label>
         <input type="text" class="form-control disabled" id="name" :value="invitation.code" disabled>
       </div>
-      <button @click="update" class="btn btn-primary mb-5">Crear invitación</button>
+      <button @click="update" class="btn btn-primary mb-5">Editar invitación</button>
     </div>
   </div>
 </template>
