@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-const API_URL = import.meta.env.VITE_SOME_KEY || 'http://localhost:3000';
+const API_URL = import.meta.env.VITE_HOST || 'http://localhost:3000';
 
 export const getInvitations = async (page:number = 1): Promise<{info: any, data: any}> => {
   const token = Cookies.get('token');

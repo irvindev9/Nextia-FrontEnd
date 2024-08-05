@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import router from '../routes/router';
 
-const API_URL = import.meta.env.VITE_SOME_KEY || 'http://localhost:3000';
+const API_URL = import.meta.env.VITE_HOST || 'http://localhost:3000';
 
 export const register = async (payload: {names: string, lastnames: string, email: string, password: string, house_number: number}): Promise<{token: string}> => {
   const { data } = await axios.post(`${API_URL}/signup`, payload);
